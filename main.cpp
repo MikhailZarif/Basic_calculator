@@ -58,7 +58,8 @@ int main() {
     for (it = formula.begin(); it != formula.end() - 1; ++it) {
         if ((*it == '-') && (*(++it) == '(')) {
             --it;
-            *it = '(';
+            formula.insert(it, '+');
+            *(++it) = '(';
             *(++it) = '0';
             formula.insert((++it) - formula.begin(), "-(");
             it = std::find(it, formula.end(), ')');
